@@ -1,0 +1,23 @@
+{
+  "name": "mapbox-legend-symbol",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "scripts": {
+    "build": "./scripts/build",
+    "dev": "./scripts/demo"
+  },
+  "source": "src/index.js",
+  "unpkg": "dist/index.umd.js",
+  "dependencies": {
+    "@mapbox/mapbox-gl-style-spec": "^13.16.0"
+  },
+  "devDependencies": {
+    "classnames": "^2.2.6",
+    "concurrently": "^5.2.0",
+    "http-server": "^0.12.3",
+    "mapbox-gl": "^1.11.1",
+    "microbundle": "^0.12.2"
+  }
+}
