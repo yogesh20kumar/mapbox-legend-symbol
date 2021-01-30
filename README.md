@@ -17,7 +17,7 @@ Here is an example using VUE/Nuxtjs. In the example below `map` is a instance of
 ```javascript
 <v-treeview               
     item-disabled="locked"
-    :items="lagends"               
+    :items="legends"               
     open-on-click
     hoverable
 >
@@ -34,14 +34,14 @@ import mapboxLegendSymbol from "mapbox-legend-symbol"
 export default { 
   data() {
     return {
-      lagends: []
+      legends: []
     };
   },
   mounted() {
-    this.getLagends()   
+    this.getLegends()
   },
   methods: {
-    getLagends() {
+    getLegends() {
       //======================== Initialize Mapbox ====================//
       mapboxgl.accessToken = ''; // mapbox access token
 			var map = new mapboxgl.Map({
@@ -94,12 +94,12 @@ export default {
                             img.src = symbol.attributes.style.backgroundImage.replace('url(','').replace(')','')
                             img.style.cssText = 'margin-top:-1px;margin-left:-1px;'								   
                             let layrr = {...lyer, ...{"icon": img.outerHTML}}
-                            this.lagends = [...this.lagends, layrr]
+                            this.legends = [...this.legends, layrr]
                         }else{
                             var fillDiv = document.createElement('div')								
                             fillDiv.style.cssText = `height: 15px;width:15px;display: inline-block;background-color:${symbol.attributes.style.backgroundColor};opacity:${symbol.attributes.style.opacity};`								   
                             let layrr = {...lyer, ...{"icon": fillDiv.outerHTML}}
-                            this.lagends = [...this.lagends, layrr] 
+                            this.legends = [...this.legends, layrr] 
                         }
                         break;
                     case 'svg':
@@ -119,10 +119,10 @@ export default {
                             svg.appendChild(group)
                         })							
                         let layrr = {...lyer, ...{"icon": svg.outerHTML}}
-                        this.lagends = [...this.lagends, layrr]
+                        this.legends = [...this.legends, layrr]
                         break;
                     default:
-                        this.lagends = [...this.lagends, lyer]
+                        this.legends = [...this.legends, lyer]
                         break;
                 }
             }				
