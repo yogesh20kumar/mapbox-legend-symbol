@@ -86,46 +86,46 @@ export default {
          ];             
       	for (const lyer of allLayers) {			
           let symbol = mapboxLegendSymbol({map: map, layer:lyer})
-					if(symbol){
-						switch(symbol.element){
-							case 'div':                  
-								if ((symbol.attributes.style.backgroundImage && symbol.attributes.style.backgroundImage !== "url(undefined)")){
-									var img = document.createElement('img')
-									img.src = symbol.attributes.style.backgroundImage.replace('url(','').replace(')','')
-									img.style.cssText = 'margin-top:-1px;margin-left:-1px;'								   
-									let layrr = {...lyer, ...{"icon": img.outerHTML}}
-									this.lagends = [...this.lagends, layrr]
-								}else{
-									var fillDiv = document.createElement('div')								
-									fillDiv.style.cssText = `height: 15px;width:15px;display: inline-block;background-color:${symbol.attributes.style.backgroundColor};opacity:${symbol.attributes.style.opacity};`								   
-									let layrr = {...lyer, ...{"icon": fillDiv.outerHTML}}
-									this.lagends = [...this.lagends, layrr] 
-								}
-								break;
-							case 'svg':
-								let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-								svg.style.cssText = 'height: 15px;'
-								svg.setAttributeNS(null, 'version', '1.1')
-								Object.keys(symbol.attributes).forEach(k=>{
-									svg.setAttribute(k, symbol.attributes[k])
-									let group = document.createElementNS('http://www.w3.org/2000/svg', 'g')
-									symbol.children.forEach(child=>{
-										var c = document.createElementNS('http://www.w3.org/2000/svg', child.element)
-										Object.keys(child.attributes).forEach(k2=>{
-											c.setAttributeNS(null, k2, child.attributes[k2])
-										})
-										group.appendChild(c)
-									})
-									svg.appendChild(group)
-								})							
-								let layrr = {...lyer, ...{"icon": svg.outerHTML}}
-								this.lagends = [...this.lagends, layrr]
-								break;
-							default:
-								this.lagends = [...this.lagends, lyer]
-								break;
-						}
-				  }				
+            if(symbol){
+                switch(symbol.element){
+                    case 'div':                  
+                        if ((symbol.attributes.style.backgroundImage && symbol.attributes.style.backgroundImage !== "url(undefined)")){
+                            var img = document.createElement('img')
+                            img.src = symbol.attributes.style.backgroundImage.replace('url(','').replace(')','')
+                            img.style.cssText = 'margin-top:-1px;margin-left:-1px;'								   
+                            let layrr = {...lyer, ...{"icon": img.outerHTML}}
+                            this.lagends = [...this.lagends, layrr]
+                        }else{
+                            var fillDiv = document.createElement('div')								
+                            fillDiv.style.cssText = `height: 15px;width:15px;display: inline-block;background-color:${symbol.attributes.style.backgroundColor};opacity:${symbol.attributes.style.opacity};`								   
+                            let layrr = {...lyer, ...{"icon": fillDiv.outerHTML}}
+                            this.lagends = [...this.lagends, layrr] 
+                        }
+                        break;
+                    case 'svg':
+                        let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+                        svg.style.cssText = 'height: 15px;'
+                        svg.setAttributeNS(null, 'version', '1.1')
+                        Object.keys(symbol.attributes).forEach(k=>{
+                            svg.setAttribute(k, symbol.attributes[k])
+                            let group = document.createElementNS('http://www.w3.org/2000/svg', 'g')
+                            symbol.children.forEach(child=>{
+                                var c = document.createElementNS('http://www.w3.org/2000/svg', child.element)
+                                Object.keys(child.attributes).forEach(k2=>{
+                                    c.setAttributeNS(null, k2, child.attributes[k2])
+                                })
+                                group.appendChild(c)
+                            })
+                            svg.appendChild(group)
+                        })							
+                        let layrr = {...lyer, ...{"icon": svg.outerHTML}}
+                        this.lagends = [...this.lagends, layrr]
+                        break;
+                    default:
+                        this.lagends = [...this.lagends, lyer]
+                        break;
+                }
+            }				
         }        
     }
   },
