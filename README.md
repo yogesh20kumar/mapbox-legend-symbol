@@ -1,5 +1,5 @@
 # mapbox-legend-symbol
-Mapbox Lagend Symbol
+Mapbox Legend Symbol
 
 This module is showing legend symbol control which is able to create legend panel from mapbox layer style.
 
