@@ -135,4 +135,4 @@ export default {
 
 ## Contribution
 
-Most welcome for everyone.
+Everyone is welcome.
