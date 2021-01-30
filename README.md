@@ -135,4 +135,4 @@ export default {
 
 ## Contribution
 
-Most welcome for any feedbacks and pull request to this repository.
+Most welcome for everyone.
