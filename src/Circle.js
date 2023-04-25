@@ -39,7 +39,7 @@ export default function Circle(props) {
           cx: 10,
           cy: 10,
           fill: 'transparent',
-          opacity: strokeOpacity ?? 0,
+          opacity: strokeOpacity,
           r: radius,
           'stroke-width': strokeWidth,
           stroke: strokeColor,
