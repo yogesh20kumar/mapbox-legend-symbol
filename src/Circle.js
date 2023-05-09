@@ -11,6 +11,12 @@ export default function Circle(props) {
 
   const innerRadius = radius - strokeWidth / 2
 
+  let strokeOpacityVal = 0
+
+  if (strokeOpacity) {
+    strokeOpacityVal = strokeOpacity
+  }
+
   return {
     element: 'svg',
     attributes: {
@@ -39,7 +45,7 @@ export default function Circle(props) {
           cx: 10,
           cy: 10,
           fill: 'transparent',
-          opacity: strokeOpacity,
+          opacity: strokeOpacityVal,
           r: radius,
           'stroke-width': strokeWidth,
           stroke: strokeColor,
