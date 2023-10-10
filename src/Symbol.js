@@ -19,7 +19,8 @@ function renderIconSymbol ({expr, layer, map}) {
           backgroundRepeat: "no-repeat",
           width: "100%",
           height: "100%",
-        }
+        },
+        layer
       },
     };
     // return <Image key={icon} {...image.data} />
